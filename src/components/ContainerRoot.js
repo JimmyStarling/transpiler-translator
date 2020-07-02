@@ -49,6 +49,12 @@ export default function ContainerRoot() {
 
 	const [itemsValue, setItemsValue] = React.useState(selected_languages);
 	const classes = useStyles();
+
+	const SpaceDynamic = (index, space) => {
+		if(index !== 0) {
+			return <Box px={space}></Box>;
+		}
+	};
 	
 	const ListDynamic = (index) => {
 		if (index === 0) {
@@ -57,8 +63,6 @@ export default function ContainerRoot() {
 						orientation="vertical" 
 						flexItem 
 					/>;
-		} else {
-			return <Box className="" px={2}></Box>;
 		}
 	}
 
@@ -77,6 +81,7 @@ export default function ContainerRoot() {
 							<ListItem 
 								key={value.id} 
 								className={classes.listItem}>
+								{ SpaceDynamic(index, 3) }
 								<TextFields 
 									order={index}
 									items={value}
