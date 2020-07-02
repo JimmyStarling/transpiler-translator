@@ -46,7 +46,9 @@ export const useStyles = makeStyles((theme) => ({
 		flex: 1,
 	},
 	textField:{
-		fontSize: '32px',
+	},
+	textFieldResize: {
+		fontSize: 62,
 		fontWeight: 700,
 	},
 	textcontainer:{
