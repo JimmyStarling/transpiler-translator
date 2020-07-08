@@ -59,14 +59,6 @@ export const useStyles = makeStyles((theme) => ({
 		margin: theme.spacing(1),
 		minWidth: 120,
 	},
-	selectInput: {
-		input: {
-			border: 'none',
-			'&:focus': {
-				backgroundColor: 'transparent',
-			},
-		}
-	},
 	selectEmpty: {
 		marginTop: theme.spacing(2),
 	},
@@ -122,7 +114,7 @@ export const BootstrapInput = withStyles((theme) => ({
 	  borderRadius: 4,
 	  position: 'relative',
 	  backgroundColor: theme.palette.background.paper,
-	  border: '1px solid #ced4da',
+	  border: 'none',
 	  fontSize: 16,
 	  padding: '10px 26px 10px 12px',
 	  transition: theme.transitions.create(['border-color', 'box-shadow']),
@@ -140,9 +132,9 @@ export const BootstrapInput = withStyles((theme) => ({
 		'"Segoe UI Symbol"',
 	  ].join(','),
 	  '&:focus': {
-		borderRadius: 4,
-		borderColor: '#80bdff',
-		boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+		background: 'transparent',		
+		boxShadow: 'none',
 	  },
 	},
 }))(InputBase);
+//0 0 0 0.2rem rgba(0,123,255,.25)
