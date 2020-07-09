@@ -72,7 +72,6 @@ export default function ContainerRoot() {
 			<Grid container className={classes.textcontainer} justify="center" spacing={0}>
 				<Paper 
 					className={`${classes.paper} ${classes.spacingPaper}`} 
-					borderRadius={9}
 					elevation={4}>
 
 					<Headbar items={itemsValue}/>
