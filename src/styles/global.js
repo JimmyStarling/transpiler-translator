@@ -39,6 +39,7 @@ export const useStyles = makeStyles((theme) => ({
 		height: 'auto',
 	},
 	spacingPaper: {
+		height: '100%',
 		padding: 0,
 		paddingTop: 0,
 		paddingBottom: 0,
@@ -47,6 +48,7 @@ export const useStyles = makeStyles((theme) => ({
 		flex: 1,
 	},
 	textField:{
+		alignSelf: 'stretch',
 	},
 	textFieldResize: {
 		fontSize: 25,
@@ -54,6 +56,14 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	textcontainer:{
 		height: '350px',
+	},
+	bottomTools:{ 
+		position: 'absolute',
+		flexDirection: 'row',
+		alignItems: 'flex-start',
+		justifyContent:'space-between',
+		bottom: '0px',
+		width: '100%',
 	},
 	formControl: {
 		margin: theme.spacing(1),
@@ -69,8 +79,19 @@ export const useStyles = makeStyles((theme) => ({
 		zIndex: 3
 	},
 	inputConfigContainer: {
-		position: 'absolute',
-		bottom: '0px'
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'flex-end',
+		alignSelf: 'flex-end',
+	},
+	inputMicContainer: {
+		alignSelf: 'flex-start',
+	},
+	inputSelect:{
+		display: 'flex',
+		flexDirection: 'row',
+		wrap: 'nowrap',
 	},
 	tabs:{
 		borderBottom: '1px solid rgba(0,0,0, 0.6)',
@@ -82,13 +103,13 @@ export const useStyles = makeStyles((theme) => ({
 		padding: 50,
 		paddingTop: 0,
 		paddingBottom: 0,
-		height: 'auto',
+		height: 230,
 	},
 	listItem: {
 		flex: 1,
 		display: 'flex',
 		flexDirection: 'row',
-		height: '100%',
+		height: 'auto',
 		cursor: 'text',
 		padding: 5,
 	},
