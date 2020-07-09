@@ -26,15 +26,14 @@ export const Headbar = (props) => {
         >
         {itemsArray
             .map((val, index) => {
-                return () => {  
-                    var count = 0;
-                    if(val.id !== 1 && val.id !== 2){
-                        count++;
-                        return (<Tab label={val.lang} />);
-                    } else if ( count > 3 ){
-                        return (<Tab icon={<SyncAltIcon />} />);
-                    }
+                var count = 0;
+                if(val.id !== 1 && val.id !== 2){
+                    count++;
+                    return (<Tab key={val.id} label={val.lang} />);
+                } else if ( count > 3 ){
+                    return (<Tab key={val.id} icon={<SyncAltIcon />} />);
                 }
+                return index;
             })
         }
         </Tabs>
