@@ -4,6 +4,7 @@ import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 
 import { useStyles } from '../styles/global';
+import { Box } from '@material-ui/core/Box';
 
 export const Headbar = (props) => {
     const [value, setValue] = React.useState(0);
@@ -16,27 +17,39 @@ export const Headbar = (props) => {
 
     return (
         <div className={classes.headbarContainer}>
-        <Tabs
-            className={classes.tabs}
-            value={value}
-            onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-            centered
-        >
-        {itemsArray
-            .map((val, index) => {
-                var count = 0;
-                if(val.id !== 1 && val.id !== 2){
-                    count++;
-                    return (<Tab key={val.id} label={val.lang} />);
-                } else if ( count > 3 ){
-                    return (<Tab key={val.id} icon={<SyncAltIcon />} />);
+            <Tabs
+                className={classes.tabs}
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                textColor="primary"
+            >
+                {itemsArray
+                    .map((val, index) => {
+                        while(index <= 3){
+                            return (<Tab key={val.id} label={val.lang} />);
+                        }
+                    })
                 }
-                return index;
-            })
-        }
-        </Tabs>
+            </Tabs>
+            <SyncAltIcon />
+            <Tabs
+                className={classes.tabs}
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                textColor="primary"
+            >
+                {itemsArray
+                    .map((val, index) => {
+                        if(index !== 0){
+                            while(index <= 3){
+                                return (<Tab key={val.id} label={val.lang} />);
+                            }
+                        }
+                    })
+                }
+            </Tabs>
         </div>
     )
 }
