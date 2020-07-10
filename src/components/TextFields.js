@@ -8,8 +8,9 @@ import CreateIcon from '@material-ui/icons/Create';
 import KeyboardIcon from '@material-ui/icons/Keyboard';
 
 import { useStyles } from '../styles/global';
-import { Box, FormControl, Select, MenuItem, FormGroup, FormControlLabel } from '@material-ui/core';
+import { Box, FormControl, Select, MenuItem, FormGroup } from '@material-ui/core';
 import { BootstrapInput } from './../styles/global';
+import Grid from '@material-ui/core/Grid';
 
 export const TextFields = (props) => {
     /** 
@@ -35,7 +36,11 @@ export const TextFields = (props) => {
         var current_icon = e.target.value;
         setIcon(current_icon);
     };
-
+    // This func set textField value 
+    const _handleText = (e) => {
+        var text = e.target.value;
+        setTextFieldValue(text);
+    };
     const CustomIcon = () => {
         var current_icon = icon;
         if(current_icon === 10){
@@ -76,7 +81,7 @@ export const TextFields = (props) => {
                         *   to use virtual keyboards, handwriting and etc..  
                         */}
                         <Box width="auto" className={classes.inputConfigContainer}>
-                            <label> {String(textFieldValue).length}/100 </label>
+                            <label> {textFieldValue.length}/100 </label>
                             <FormControl component="fieldset">
                                 <FormGroup>
                                     {/** 
@@ -132,31 +137,35 @@ export const TextFields = (props) => {
     }
 
     return (
-        <div className={classes.textFields} >
-            <TopTools/>
-            <TextField
-                fullWidth
-                id={`text-${items.lang}`} 
-                className={classes.textField}
-                placeholder={items.text}
-                InputProps={{ 
-                    classes: {
-                        input: classes.textFieldResize
-                    }, 
-                    disableUnderline: true, 
-                }}
-                InputLabelProps={{
-                    classes: {
-                        root: classes.textFieldResize
-                    }
-                }}
-                defaultValue={items.text}
-                value={textFieldValue}
-                onChange={(e) => setTextFieldValue(e.target.value)}
-                inputProps={{ maxLength: 100 }}
-                multiline
-            />
-            <BottomTools/>
+        <div className={`${classes.textFields} ${classes.sourceWrap}`}>
+            <Grid className={classes.sourceInput}>
+                <Grid className={classes.inputWrap}>
+                    <TopTools/> 
+                    <TextField
+                        fullWidth
+                        id={`text-${items.lang}`} 
+                        className={classes.textField}
+                        placeholder={items.text}
+                        InputProps={{ 
+                            classes: {
+                                input: classes.textFieldResize
+                            }, 
+                            disableUnderline: true, 
+                        }}
+                        InputLabelProps={{
+                            classes: {
+                                root: classes.textFieldResize
+                            }
+                        }}
+                        defaultValue={items.text}
+                        value={textFieldValue}
+                        onChange={_handleText}
+                        inputProps={{ maxLength: 100 }}
+                        multiline
+                    />
+                </Grid>
+                <BottomTools/>
+            </Grid>
         </div>
     );
 }
