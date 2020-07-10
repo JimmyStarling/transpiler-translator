@@ -6,6 +6,9 @@ export const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
 	},
 	headbarContainer: {
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'center',
 		width: '100%',
 		height: '50px',
 	},
@@ -17,8 +20,9 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	divider: {
 		position: 'absolute',
+		top: '0px',
 		right: '0px',
-		height: 170,
+		height: '100%',
 	},
     paper: {
       marginTop: 60,
@@ -46,16 +50,34 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	textFields:{
 		flex: 1,
+		width: `100%`,
+		height: '100%',
+		padding: 5,
+	},
+	/** Container wrap */
+	sourceWrap: {
+		
+	},
+	/** BottomTools & Grid wrap */
+	sourceInput: {
+
+	},
+	/** TextField & TopTools wrap */
+	inputWrap: {
+		paddingTop: 20,
+		paddingLeft: 30,
+		paddingRight: 30,
 	},
 	textField:{
+		height: 72,
 		alignSelf: 'stretch',
 	},
 	textFieldResize: {
 		fontSize: 25,
 		fontWeight: 400,
 	},
-	textcontainer:{
-		height: '350px',
+	textFieldContainer:{
+		height: 'auto',//350px',
 	},
 	bottomTools:{ 
 		position: 'absolute',
@@ -74,8 +96,8 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	inputCloseContainer:{
 		position: 'absolute',
-		top: '0px',
-		right: '0px',
+		top: '20px',
+		right: '15px',
 		zIndex: 3
 	},
 	inputConfigContainer: {
@@ -84,6 +106,7 @@ export const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 		justifyContent: 'flex-end',
 		alignSelf: 'flex-end',
+		marginRight: '20px',
 	},
 	inputMicContainer: {
 		alignSelf: 'flex-start',
@@ -94,15 +117,15 @@ export const useStyles = makeStyles((theme) => ({
 		wrap: 'nowrap',
 	},
 	tabs:{
-		borderBottom: '1px solid rgba(0,0,0, 0.6)',
+		borderBottom: '1px solid rgba(0,0,0, 0.2)',
 	},
     control: {
       padding: theme.spacing(2),
 	},
 	listContainer:{
-		padding: 50,
-		paddingTop: 0,
-		paddingBottom: 0,
+		// padding: 50,
+		// paddingTop: 0,
+		// paddingBottom: 0,
 		height: 230,
 	},
 	listItem: {
@@ -136,8 +159,8 @@ export const BootstrapInput = withStyles((theme) => ({
 	  position: 'relative',
 	  backgroundColor: theme.palette.background.paper,
 	  border: 'none',
-	  fontSize: 16,
-	  padding: '10px 26px 10px 12px',
+	  fontSize: 12,
+	  padding: '5px 5px 5px 5px',
 	  transition: theme.transitions.create(['border-color', 'box-shadow']),
 	  // Use the system font instead of the default Roboto font.
 	  fontFamily: [
