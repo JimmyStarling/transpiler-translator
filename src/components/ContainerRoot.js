@@ -33,14 +33,14 @@ export default function ContainerRoot() {
 	const selected_languages = [
 		{
 			id: 0,
-			lang: 'english', 
+			lang: 'Node.js', 
 			text: '',
 			output: false, // !IMPORTANT Utilizado na logica de tradução.
 			input: true
 		}, 
 		{
 			id: 1,
-			lang: 'portuguese', 
+			lang: 'PHP', 
 			text: 'Tradução',
 			output: true, // !IMPORTANT Utilizado na logica de tradução.
 			input: false
@@ -69,7 +69,7 @@ export default function ContainerRoot() {
 	return (
 		<div className={classes.root}>
 		<Grid container direction="column" spacing={3}>
-			<Grid container className={classes.textcontainer} justify="center" spacing={0}>
+			<Grid container className={classes.textFieldContainer} justify="center" spacing={0}>
 				<Paper 
 					className={`${classes.paper} ${classes.spacingPaper}`} 
 					elevation={4}>
@@ -80,7 +80,6 @@ export default function ContainerRoot() {
 							<ListItem 
 								key={value.id} 
 								className={classes.listItem}>
-								{ SpaceDynamic(index, 3) }
 								<TextFields 
 									order={index}
 									items={value}
