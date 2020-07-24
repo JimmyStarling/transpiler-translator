@@ -48,14 +48,6 @@ export default function ContainerRoot() {
 	return (
 		<div className={classes.root}>
 		<Grid container direction="column" spacing={3}>
-			<Grid container className={classes.textFieldTitleContainer}>
-				<Typography variant="h3" gutterBottom>
-					Translate Code
-					<Typography variant="h6" gutterBottom>
-						Easily
-					</Typography>
-				</Typography>
-			</Grid>
 			<Grid container className={classes.textFieldContainer} justify="center" spacing={0}>
 				<Paper 
 					className={`${classes.paper} ${classes.spacingPaper}`} 
