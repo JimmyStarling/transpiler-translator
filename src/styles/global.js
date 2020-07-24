@@ -79,6 +79,11 @@ export const useStyles = makeStyles((theme) => ({
 	textFieldContainer:{
 		height: 'auto',//350px',
 	},
+	textFieldTitleContainer:{
+		margin: '100px auto',
+		width: 'auto',
+		textAlign: 'center',
+	},
 	bottomTools:{ 
 		position: 'absolute',
 		flexDirection: 'row',
@@ -116,16 +121,24 @@ export const useStyles = makeStyles((theme) => ({
 		flexDirection: 'row',
 		wrap: 'nowrap',
 	},
+	iconButton:{
+		flex: '1',
+	},
+	headbarIcon: {
+		position: 'absolute',
+		padding: '10px',
+	},
 	tabs:{
+		flex: '1',
 		borderBottom: '1px solid rgba(0,0,0, 0.2)',
+	},
+	tabRight:{
+		paddingLeft: '50px',
 	},
     control: {
       padding: theme.spacing(2),
 	},
 	listContainer:{
-		// padding: 50,
-		// paddingTop: 0,
-		// paddingBottom: 0,
 		height: 230,
 	},
 	listItem: {
