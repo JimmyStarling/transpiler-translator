@@ -79,11 +79,6 @@ export const useStyles = makeStyles((theme) => ({
 	textFieldContainer:{
 		height: 'auto',//350px',
 	},
-	textFieldTitleContainer:{
-		margin: '100px auto',
-		width: 'auto',
-		textAlign: 'center',
-	},
 	bottomTools:{ 
 		position: 'absolute',
 		flexDirection: 'row',
