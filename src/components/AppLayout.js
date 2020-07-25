@@ -9,10 +9,10 @@ import Typography from '@material-ui/core/Typography';
 // Styles
 import { useStyles } from '../styles/global'; 
 // External components
-import { TextFields } from './TextFields';
+import { TextBox } from './TextBox';
 import { Headbar } from './Headbar';
 
-export default function ContainerRoot() {
+export default function AppLayout() {
 	// Languages dictionary
 	const languages = [
 		{
@@ -60,7 +60,7 @@ export default function ContainerRoot() {
 								<ListItem 
 									key={value.id} 
 									className={classes.listItem}>
-									<TextFields 
+									<TextBox 
 										position={index}
 										items={value}
 										ids={value.id}/>
