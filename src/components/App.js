@@ -1,11 +1,11 @@
 import React from 'react';
 
-import ContainerRoot from './ContainerRoot';
+import AppLayout from './AppLayout';
 
 function App() {
   return (
     <div className="App">
-      <ContainerRoot/>
+      <AppLayout/>
     </div>
   );
 }
