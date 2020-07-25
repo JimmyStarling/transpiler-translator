@@ -6,6 +6,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+// Models
+import { languages } from '../models/constant';
 // Styles
 import { useStyles } from '../styles/global'; 
 // External components
@@ -13,24 +15,6 @@ import { TextBox } from './TextBox';
 import { Headbar } from './Headbar';
 
 export default function AppLayout() {
-	// Languages dictionary
-	const languages = [
-		{
-			id: 0,
-			lang: 'Node.js', 
-			text: '',
-			output: false, // !IMPORTANT Utilizado with the translation logic.
-			input: true
-		}, 
-		{
-			id: 1,
-			lang: 'PHP', 
-			text: 'Tradução',
-			output: true, // !IMPORTANT Utilized with the translation logic.
-			input: false
-		}
-	];
-
 	const [languageValue, setLanguageValue] = React.useState(languages);
 	const classes = useStyles();
 
