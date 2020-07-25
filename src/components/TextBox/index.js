@@ -7,12 +7,12 @@ import MicIcon from '@material-ui/icons/Mic';
 import CreateIcon from '@material-ui/icons/Create';
 import KeyboardIcon from '@material-ui/icons/Keyboard';
 
-import { useStyles } from '../styles/global';
+import { useStyles } from '../../styles/global';
 import { Box, FormControl, Select, MenuItem, FormGroup } from '@material-ui/core';
-import { BootstrapInput } from './../styles/global';
+import { BootstrapInput } from '../../styles/global';
 import Grid from '@material-ui/core/Grid';
 
-export const TextFields = (props) => {
+export const TextBox = (props) => {
     /** 
      *   Values received from the root container
      *   Theses variables will receive the selected 
@@ -20,7 +20,7 @@ export const TextFields = (props) => {
      * 
      **/
     var items = props.items;
-    var item_order = props.order;
+    var item_position = props.position;
     var language = String(items.lang);
     // Classes from global.js
     const classes = useStyles();
@@ -29,7 +29,7 @@ export const TextFields = (props) => {
     const [icon, setIcon] = React.useState();
     // This func will clear the selected textfield strings from state.
     const _handleClearText = () => {
-        setTextFieldValue(' ');
+        setTextFieldValue('');
     };
     // This func return a icon component to ControlLabel according to the <Select/> into ControlLabel props(e.g 'control={here}').
     const _handleSelect = (e) => {
@@ -45,22 +45,22 @@ export const TextFields = (props) => {
         var current_icon = icon;
         if(current_icon === 10){
             return  <IconButton 
-                        color="primary" 
+                        className={classes.iconButton} 
                         aria-label="Write" 
                         component="span"
-                        onClick={() => {return alert('hello :)');}}>
+                        onClick={() => {return alert('Testing :)');}}>
                         <CreateIcon/>
                     </IconButton>;
         }else if(current_icon === 20){
-            return  <IconButton color="primary" aria-label="Virtual Keyboard - DVORAK" component="span">
+            return  <IconButton className={classes.iconButton} aria-label="Virtual Keyboard - DVORAK" component="span">
                         <KeyboardIcon/>
                     </IconButton>;
         }else if(current_icon === 30){
-            return  <IconButton color="primary" aria-label="Virtual Keyboard" component="span">
+            return  <IconButton className={classes.iconButton} aria-label="Virtual Keyboard" component="span">
                         <KeyboardIcon/>
                     </IconButton>;
         } else {
-            return <IconButton color="primary" aria-label="upload picture" component="span">
+            return <IconButton className={classes.iconButton} aria-label="upload picture" component="span" onClick={() => {return alert('hello :)');}}>
                         <CreateIcon/>
                     </IconButton>;
         }
@@ -69,7 +69,7 @@ export const TextFields = (props) => {
     // Theses two functions will return the components
     // only when it's the first TextField.
     const BottomTools = () => { 
-        if(item_order === 0){
+        if(item_position === 0){
             return  <Box className={classes.bottomTools} display="flex">
                         <Box className={classes.inputMicContainer} width="auto">
                             <IconButton aria-label="delete">
@@ -90,18 +90,13 @@ export const TextFields = (props) => {
                                     */}
                                     <Box className={classes.inputSelect}>
                                     
+                                    <CustomIcon/>
                                     <Select
                                         labelId="demo-simple-select-label"
                                         onChange={_handleSelect}
-                                        value={0}
-                                        renderValue={() => {
-                                            return <CustomIcon/>;
-                                        }}
                                         input={<BootstrapInput />}
+                                        boxShadow={0}
                                     >
-                                        <MenuItem>
-                                            <CustomIcon/>
-                                        </MenuItem>
                                         <MenuItem value={10}>
                                             <CreateIcon/>
                                             <label>Inglês</label>
@@ -120,19 +115,15 @@ export const TextFields = (props) => {
                             </FormControl>
                         </Box>
                     </Box>;
-        } else {
-            return  <Box display="none"></Box>;
         }
     }
     const TopTools = () => { 
-        if(item_order === 0){
+        if(item_position === 0){
             return  <Box className={classes.inputCloseContainer}>
                         <IconButton aria-label="delete" onClick={_handleClearText}>
                             <CloseIcon />
                         </IconButton >
                     </Box>
-        } else {
-            return  <Box display="none"></Box>;
         }
     }
 
@@ -140,7 +131,7 @@ export const TextFields = (props) => {
         <div className={`${classes.textFields} ${classes.sourceWrap}`}>
             <Grid className={classes.sourceInput}>
                 <Grid className={classes.inputWrap}>
-                    <TopTools/> 
+                    { TopTools }
                     <TextField
                         fullWidth
                         id={`text-${items.lang}`} 
@@ -164,7 +155,7 @@ export const TextFields = (props) => {
                         multiline
                     />
                 </Grid>
-                <BottomTools/>
+                { BottomTools }
             </Grid>
         </div>
     );
