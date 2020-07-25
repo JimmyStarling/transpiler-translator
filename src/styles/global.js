@@ -1,5 +1,6 @@
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
+import Select from '@material-ui/core/Select';
 
 export const useStyles = makeStyles((theme) => ({
     root: {
@@ -189,4 +190,12 @@ export const BootstrapInput = withStyles((theme) => ({
 	  },
 	},
 }))(InputBase);
-//0 0 0 0.2rem rgba(0,123,255,.25)
+
+export const BootstrapSelect = withStyles((theme) => ({
+	background: 'transparent',
+	menuStyle:{
+		border: "1px solid black",
+		borderRadius: "5%",
+		backgroundColor: 'lightgrey',
+	},
+}))(Select);
