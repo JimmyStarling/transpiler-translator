@@ -1,12 +1,15 @@
 import React from 'react';
 
 import AppLayout from './AppLayout';
+import Store from '../store/Store';
 
 function App() {
   return (
-    <div className="App">
-      <AppLayout/>
-    </div>
+    <Store>
+      <div className="App">
+        <AppLayout/>
+      </div>
+    </Store>
   );
 }
 
