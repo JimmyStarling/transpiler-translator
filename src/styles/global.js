@@ -51,15 +51,14 @@ export const useStyles = makeStyles((theme) => ({
 	},
 	textFields:{
 		flex: 1,
-		width: `100%`,
+		width: '100%',
 		height: '100%',
 		padding: 5,
 	},
 	/** Container wrap */
 	sourceWrap: {
-		
+		height: '100%',
 	},
-	/** BottomTools & Grid wrap */
 	sourceInput: {
 
 	},
@@ -70,15 +69,19 @@ export const useStyles = makeStyles((theme) => ({
 		paddingRight: 30,
 	},
 	textField:{
-		height: 72,
+		height: 'auto',//72,
 		alignSelf: 'stretch',
 	},
-	textFieldResize: {
+	textFieldResize:{
 		fontSize: 25,
 		fontWeight: 400,
+		lineHeight: 1.2,
 	},
 	textFieldContainer:{
-		height: 'auto',//350px',
+		height: 'auto',
+	},
+	outputField:{
+		wordBreak: 'break-word',
 	},
 	bottomTools:{ 
 		position: 'absolute',
