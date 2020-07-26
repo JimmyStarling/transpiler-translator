@@ -18,8 +18,10 @@ import { BootstrapInput } from '../../styles/global';
 // Custom components
 import { HeaderTools } from './components/HeaderTools';
 import { FooterTools } from './components/FooterTools';
+// Store for global reducers
+import {Context} from '../../store/Store';
 
-export const TextBox = (props) => {
+export const TextBox = React.memo((props) => {
     /** 
      *   Values received from the root container
      *   Theses variables will receive the selected 
@@ -33,14 +35,20 @@ export const TextBox = (props) => {
     const classes = useStyles();
     // State hooks variable. 
     const [textFieldValue, setTextFieldValue] = React.useState('');
+    // Global reducer state
+    const [textValue, setTextValue] = React.useContext(Context);
     
     // This will clear the selected textfield.
     const _setTextClear = () => {
         setTextFieldValue('');
+        // Setting dispatch output value; dispatch = setTextValue
+        setTextValue({type: 'REMOVE_OUTPUT'});
     };
     const _setTextValue = (e) => {
         var text = e.target.value;
         setTextFieldValue(text);
+        // Setting dispatch output value; dispatch = setTextValue
+        setTextValue({type: 'SET_OUTPUT', payload: textFieldValue});
     };
 
     return (
@@ -75,4 +83,4 @@ export const TextBox = (props) => {
             </Grid>
         </div>
     );
-}
+});
