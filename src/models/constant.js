@@ -15,3 +15,18 @@ export const languages = [
         input: false
     }
 ];
+// UI Phrases
+export const translate = [
+    {
+        id: 0,
+        text: 'Translation'
+    },
+    {
+        id: 1,
+        text: 'Tradução'
+    },
+    {
+        id: 2,
+        text: 'Traducion'
+    } 
+]
