@@ -4,30 +4,31 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 // Models
-import { languages } from '../models/constant';
+import { languages, translate } from '../models/constant';
 // Styles
 import { useStyles } from '../styles/global'; 
 // External components
 import { TextBox } from './TextBox';
 import { Headbar } from './Headbar';
+import { FlexibleDivider } from './Divider/FlexibleDivider';
+// Store for global reducers
+import { Context } from '../store/Store';
 
 export default function AppLayout() {
-	const [languageValue, setLanguageValue] = React.useState(languages);
 	const classes = useStyles();
+	const [languageValue, setLanguageValue] = React.useState(languages);
+	// Global reducer state
+    const [textValue, setTextValue] = React.useContext(Context);
 
-	const FlexibleDivider = (index) => {
-		while(index === 0){
-			return(
-			<Divider 
-				className={classes.divider} 
-				orientation="vertical" 
-				flexItem 
-			/>);
+	const getOutputValue = () => {
+		if(!textValue){
+			return translate[0].text;
+		} else {
+			return textValue.output;
 		}
-	};
+	}
 
 	return (
 		<div className={classes.root}>
@@ -40,17 +41,33 @@ export default function AppLayout() {
 					<Headbar items={languageValue}/>
 					<List className={`${classes.flexContainer} ${classes.listContainer}`}>
 						{ 
-							languageValue.map((value, index) => (
-								<ListItem 
-									key={value.id} 
-									className={classes.listItem}>
-									<TextBox 
-										position={index}
-										items={value}
-										ids={value.id}/>
-									{ FlexibleDivider(index) }
-								</ListItem>
-							)) 
+							languageValue.map((value, index) => {
+								if(index === 0){
+									return <ListItem 
+												key={value.id} 
+												className={classes.listItem}>
+												<TextBox 
+													position={index}
+													items={value}
+													ids={value.id}/>
+												<FlexibleDivider index={index}/>
+											</ListItem>;
+								} else {
+									return <ListItem 
+												key={value.id} 
+												className={classes.listItem}>
+												<div className={`${classes.textFields} ${classes.sourceWrap}`}>
+													<Grid className={classes.sourceInput}>
+														<Grid className={classes.inputWrap}>
+															<div className={`${classes.textField} ${classes.textFieldResize} ${classes.outputField}` }>
+																{ getOutputValue() }
+															</div>
+														</Grid>
+													</Grid>
+												</div>
+										  </ListItem>;
+								}
+							}) 
 						}
 					</List>
 
