@@ -1,4 +1,5 @@
-## Transpiler Translator is a pseudo translator tool for code, it's Google Translator based.
+# Transpiler Translator
+### A pseudo translator tool for code, it's Google Translator based.
 
 <img src="images/transpiler_screen.png"
      alt="Transpiler Screenshot"
