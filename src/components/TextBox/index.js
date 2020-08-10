@@ -75,6 +75,7 @@ export const TextBox = React.memo((props) => {
                         defaultValue={items.text}
                         value={textFieldValue}
                         onChange={_setTextValue}
+                        onKeyUp={_setTextValue}
                         inputProps={{ maxLength: 100 }}
                         multiline
                     />
